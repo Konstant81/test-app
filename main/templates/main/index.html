@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'main/css/styles.css' %}" rel="stylesheet" />
+    <link rel="icon" href="{% static 'main/images/favicon.ico' %}" />
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <div>
+                <ul class="mainmenu">
+                    <li class="logo"><a href="{% url 'index' %}"><div class="logo"></div></a></li>
+                    <li id="name">МЕГА Приложуха</li>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'edit' %}">Edit</a></li>
+                    <li><a href="{% url 'send' %}">Send</a></li>
+                    <li class="last"><button>Войти</button></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h1>{{ content }}</h1>
+</body>
+<footer id="footer">
+    <div>
+        Copyright © Rad_1st 2024
+    </div>
+</footer>
+</html>
