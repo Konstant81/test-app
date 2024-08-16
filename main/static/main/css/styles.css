@@ -1,3 +1,7 @@
+th {
+	width: 33%;
+}
+
 .navbar {
 	background: linear-gradient(90deg, #ffffff 10%, #079282 100%);
 }
@@ -21,4 +25,30 @@
 
 .bd-footer {
 	background-color: #25baa94e;
+}
+
+.table {
+	font-size: 25px;
+	width: 90%;
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+}
+
+
+.choose-week {
+	margin-top: 10px;
+	margin-left: 5%;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.choose-btn {
+	background-color: #0792825b;
+	border-radius: 5px;
+	border-color: #079282;
+}
+
+.info {
+	font-size: 35px;
+	text-align: center;
 }
