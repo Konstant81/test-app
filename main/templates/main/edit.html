@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %} {% load static %}
+
+{% block content %}
+<div class="d-flex justify-content-between">
+    <div class="m-3"><h1>Выберите заказ</h1></div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary my-3 me-md-2" type="button">Добавить заказ</button>
+    </div>
+</div>
+<form action="" method="get">
+  <div class="m-3"> 
+    <label>Действие: <select name="action" required="">
+  <option value="" selected="">---------</option>
+  <option value="delete_selected">Удалить выбранные Заказы</option>
+  </select></label><input type="hidden" name="select_across" value="0" class="select-across">
+    <button type="submit" class="button" title="Выполнить выбранное действие" name="index" value="0">Выполнить</button>
+  </div>
+  <div class="m-3">
+    <table
+    class="table table-success table-bordered table-striped-columns table-hover align-middle"
+  >
+    <thead>
+      <tr>
+        <th style="m-0 width: 5%;">
+          <div>
+            <span><input type="checkbox" name="" id="select_all" /></span>
+          </div>
+        </th>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 28%;">Заказчик</th>
+        <th style="width: 28%;">Дата заказа</th>
+        <th style="width: 28%;">Сумма заказа</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      <tr>
+        <td><input type="checkbox" value={{order.id}} name="additional"/></td>
+        <td><a href="#" title="Редактировать заказ">{{ order.id }}</a></td>
+        <td>{{ order.client }}</td>
+        <td>{{ order.order_date }}</td>
+        <td>{{ order.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</form>
+
+<script type="text/javascript" src={% static "main/js/my.js" %}></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endblock %} {% comment %}
+
+{% endcomment %}

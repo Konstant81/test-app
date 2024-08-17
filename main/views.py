@@ -30,11 +30,13 @@ def index(request):
     return render(request, "main/index.html", context)
 
 def edit(request):
+    orders = Order.objects.select_related('client').all()
     context = {
         "title": "Редактирование",
-        "content": "Страница редактирования БД"
+        "content": "Страница редактирования БД",
+        "orders": orders
     }
-    return render(request, "main/base.html", context)
+    return render(request, "main/edit.html", context)
 
 def send(request):
     context = {
