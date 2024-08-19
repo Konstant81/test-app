@@ -23,6 +23,8 @@ app_name = "main"
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('edit/', views.edit, name='edit'),
+    path('orders/', views.edit, name='orders'),
     path('send/', views.send, name='send'),
+    path('add/', views.AddOrder.as_view(), name='add'),
+    path('edit/<int:pk>/', views.UpdateOrder.as_view(), name='edit'),
 ]

@@ -4,15 +4,17 @@
 <div class="d-flex justify-content-between">
     <div class="m-3"><h1>Выберите заказ</h1></div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button class="btn btn-primary my-3 me-md-2" type="button">Добавить заказ</button>
+      <form>
+        <a class="btn btn-primary mt-4 me-md-3" href="{% url 'main:add' %}" type="button">Добавить заказ</a>
+      </form>
     </div>
 </div>
 <form action="" method="get">
   <div class="m-3"> 
     <label>Действие: <select name="action" required="">
   <option value="" selected="">---------</option>
-  <option value="delete_selected">Удалить выбранные Заказы</option>
-  </select></label><input type="hidden" name="select_across" value="0" class="select-across">
+  <option value="delete_selected">Удалить выбранные Заказы</option></select></label>
+  <input type="hidden" name="select_across" value="0" class="select-across">
     <button type="submit" class="button" title="Выполнить выбранное действие" name="index" value="0">Выполнить</button>
   </div>
   <div class="m-3">
@@ -36,7 +38,7 @@
       {% for order in orders %}
       <tr>
         <td><input type="checkbox" value={{order.id}} name="additional"/></td>
-        <td><a href="#" title="Редактировать заказ">{{ order.id }}</a></td>
+        <td><a href="{% url 'main:edit' order.id %}" title="Редактировать заказ">{{ order.id }}</a></td>
         <td>{{ order.client }}</td>
         <td>{{ order.order_date }}</td>
         <td>{{ order.amount }}</td>

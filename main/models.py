@@ -6,15 +6,15 @@ class Client(models.Model):
 
     class Meta:
         db_table = "client" # Имя таблицы в БД
-        verbose_name = "Клиент"
-        verbose_name_plural = "Клиенты"
+        verbose_name = "Заказчик"
+        verbose_name_plural = "Заказчики"
 
     def __str__(self):
         return str(self.fullname)
 
 
 class Order(models.Model):
-    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING, verbose_name='Клиент')
+    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING, verbose_name='Заказчик')
     order_date = models.DateField(verbose_name="дата заказа")
     amount = models.IntegerField(null=False, verbose_name="сумма заказа")
 

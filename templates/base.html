@@ -28,7 +28,7 @@
                 <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'main:index' %}">Главная</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.path == '/edit/' %}active{% endif %}" href="{% url 'main:edit' %}" >Редактирование БД</a>
+                <a class="nav-link {% if request.path == '/orders/' %}active{% endif %}" href="{% url 'main:orders' %}" >Редактирование БД</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == '/send/' %}active{% endif %}" href="{% url 'main:send' %}" >Отправка JSON</a>
