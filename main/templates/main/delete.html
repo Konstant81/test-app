@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block content %}
+<form class="m-3"method="post">
+    {% csrf_token %}
+    <p>Вы уверены, что хотите удалить заказ "{{ object }}"?</p>
+    {{ form }}
+    <input class="btn btn-primary" type="submit" value="Подтвердить">
+</form>
+{% endblock %}
