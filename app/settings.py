@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     'main',
+    'users',
+    
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
