@@ -2,6 +2,10 @@ a {
 	text-decoration: none;
 }
 
+p {
+	font-size: clamp(0.75rem, 0.25rem + 2vw, 1.5rem);
+}
+
 .navbar {
 	background: linear-gradient(90deg, #ffffff 10%, #079282 100%);
 }

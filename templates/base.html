@@ -30,9 +30,9 @@
               <li class="nav-item">
                 <a class="nav-link {% if request.path == '/orders/' %}active{% endif %}" href="{% url 'main:orders' %}" >Редактирование БД</a>
               </li>
-              <li class="nav-item">
+              {% comment %} <li class="nav-item">
                 <a class="nav-link {% if request.path == '/send/' %}active{% endif %}" href="{% url 'main:send' %}" >Отправка JSON</a>
-              </li>
+              </li> {% endcomment %}
             </ul>
             <form class="d-flex align-items-center">
               {% if user.is_authenticated %}
