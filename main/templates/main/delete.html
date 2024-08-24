@@ -1,10 +1,9 @@
 {% extends 'base.html' %} {% load static %}
 
 {% block content %}
-<form class="m-3"method="post">
+<form class="m-3" method="post">
     {% csrf_token %}
     <p>Вы уверены, что хотите удалить заказ "{{ object }}"?</p>
-    {{ form }}
-    <input class="btn btn-primary" type="submit" value="Подтвердить">
+    <input class="btn btn-primary" type="submit" value="Подтвердить"> <a class="btn btn-primary mx-2" href="{% url 'main:orders' %}" role="button">Отмена</a>
 </form>
 {% endblock %}

@@ -28,23 +28,23 @@
             <span><input type="checkbox" name="" id="select_all" /></span>
           </div>
         </th> {% endcomment %}
-        <th style="width: 10%;">ID</th>
-        <th style="width: 25%;">Заказчик</th>
-        <th style="width: 25%;">Дата заказа</th>
-        <th style="width: 25%;">Сумма заказа</th>
-        <th style="width: 15%;">Удалить</th>
+        <th class="m-0 p-0" style="width: 10%;">ID</th>
+        <th class="m-0 p-0" style="width: 25%;">Заказчик</th>
+        <th class="m-0 p-0" style="width: 25%;">Дата заказа</th>
+        <th class="m-0 p-0" style="width: 25%;">Сумма заказа</th>
+        <th class="m-0 p-0" style="width: 15%;">Удалить</th>
       </tr>
     </thead>
     <tbody>
       {% for order in orders %}
       <tr>
         {% comment %} <td><input type="checkbox" value={{order.id}} name="additional"/></td> {% endcomment %}
-        <td><a href="{% url 'main:edit' order.id %}" title="Редактировать заказ">{{ order.id }}</a></td>
-        <td>{{ order.client }}</td>
-        <td>{{ order.order_date }}</td>
-        <td>{{ order.amount }}</td>
-        <td>
-          <a class="btn btn-primary" href="{% url 'main:delete' order.id %}" type="button">Удалить</a>
+        <td class="m-0 p-0"><a href="{% url 'main:edit' order.id %}" title="Редактировать заказ">{{ order.id }}</a></td>
+        <td class="m-0 p-0">{{ order.client }}</td>
+        <td class="m-0 p-0">{{ order.order_date }}</td>
+        <td class="m-0 p-0">{{ order.amount }}</td>
+        <td class="m-0 p-0">
+          <a class="m-0 p-0" href="{% url 'main:delete' order.id %}" type="button"><img class="rounded" src="{% static 'main/images/del.png' %}" alt="Удалить"></a>
           {% comment %} <form action="{% url 'main:delete' order.id %}" method="post">
             {% csrf_token %}
             <button type="submit" name="object_id">Удалить</button>

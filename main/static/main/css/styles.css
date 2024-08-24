@@ -28,10 +28,9 @@ a {
 }
 
 .table {
-	font-size: 20px;
+	font-size: clamp(0.75rem, 0.25rem + 2vw, 1.5rem);
 	text-align: center;
 	table-layout:fixed;
-
 }
 
 .choose-week {
@@ -49,3 +48,6 @@ a {
 	text-align: center;
 }
 
+.rounded {
+	width: 30%;
+}

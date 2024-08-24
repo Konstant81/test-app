@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, UpdateView
 from main.forms import AddOrderForm, EditdOrderForm
 from main.models import Order
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -43,7 +44,7 @@ def index(request):
     }
     return render(request, "main/index.html", context)
 
-
+@login_required
 def order(request):
     orders = Order.objects.select_related("client").all()
     context = {
@@ -54,6 +55,7 @@ def order(request):
     return render(request, "main/orders.html", context)
 
 
+@login_required
 def send(request):
     context = {
         "title": "Отправка",
