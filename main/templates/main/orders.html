@@ -10,24 +10,10 @@
     </div>
 </div>
 <form action="">
-  
-  {% comment %} <div class="m-3"> 
-    <label>Действие: <select name="action" required="">
-  <option value="" selected="">---------</option>
-  <option value="delete_selected">Удалить выбранные Заказы</option></select></label>
-  <input type="hidden" name="select_across" value="0" class="select-across">
-    <button type="submit" class="button" href="{% url 'main:delete' %}" title="Выполнить выбранное действие" name="index" value="0">Выполнить</button>
-
-  </div> {% endcomment %}
   <div class="m-3">
     <table  class="table table-success table-bordered table-striped-columns table-hover align-middle">
     <thead>
       <tr>
-        {% comment %} <th style="m-0 width: 5%;">
-          <div>
-            <span><input type="checkbox" name="" id="select_all" /></span>
-          </div>
-        </th> {% endcomment %}
         <th class="m-0 p-0" style="width: 10%;">ID</th>
         <th class="m-0 p-0" style="width: 25%;">Заказчик</th>
         <th class="m-0 p-0" style="width: 25%;">Дата заказа</th>
@@ -38,18 +24,12 @@
     <tbody>
       {% for order in orders %}
       <tr>
-        {% comment %} <td><input type="checkbox" value={{order.id}} name="additional"/></td> {% endcomment %}
         <td class="m-0 p-0"><a href="{% url 'main:edit' order.id %}" title="Редактировать заказ">{{ order.id }}</a></td>
         <td class="m-0 p-0">{{ order.client }}</td>
         <td class="m-0 p-0">{{ order.order_date }}</td>
         <td class="m-0 p-0">{{ order.amount }}</td>
         <td class="m-0 p-0">
           <a class="m-0 p-0" href="{% url 'main:delete' order.id %}" type="button"><img class="rounded" src="{% static 'main/images/del.png' %}" alt="Удалить"></a>
-          {% comment %} <form action="{% url 'main:delete' order.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" name="object_id">Удалить</button>
-          </td>
-          </form> {% endcomment %}
       </tr>
       {% endfor %}
     </tbody>
@@ -59,6 +39,4 @@
 
 <script type="text/javascript" src={% static "main/js/my.js" %}></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-{% endblock %} {% comment %}
-
-{% endcomment %}
+{% endblock %}

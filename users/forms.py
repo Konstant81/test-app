@@ -17,9 +17,4 @@ class RegisterUserForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = ["username", "password1", "password2"]
-    # def clean_password2(self):
-    #     cd = self.cleaned_data
-    #     if cd["password"] != cd["password2"]:
-    #         raise forms.ValidationError("Пароли не совпадают!")
-    #     return cd["password"]
     

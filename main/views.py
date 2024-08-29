@@ -54,6 +54,7 @@ def index(request):
         "week_orders": sum_amount,
         "amount_total": amount_total,
         "client_week": client_week,
+        "current_week": cur_week,
     }
     return render(request, "main/index.html", context)
 
@@ -109,37 +110,3 @@ class DeleteOrder(DeleteView):
     model = Order
     template_name = "main/delete.html"
     success_url = reverse_lazy("main:orders")
-
-
-# def add_order(request):
-#     if request.method == 'POST':
-#         form = AddOrderForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('main:orders')
-#     else:
-#         form = AddOrderForm()
-#     context = {
-#         "title": "Добавить",
-#         "content": "Добавить заказ",
-#         "form": form
-#     }
-#     return render(request, "main/add_order.html", context)
-
-# def edit_order(request, order_id):
-#     order = Order.objects.get(pk=order_id)
-#     if request.method == 'POST':
-#         form = AddOrderForm(request.POST)
-#         if form.is_valid():
-#             try:
-#                 return redirect('main:orders')
-#             except:
-#                 form.add_error(None, "Ошибка добавления заказа")
-#     else:
-#         form = AddOrderForm(order)
-#     context = {
-#         "title": "Редактировать",
-#         "content": "Редактировать заказ",
-#         "form": form
-#     }
-#     return render(request, "main/edit_order.html", context)

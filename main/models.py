@@ -24,7 +24,6 @@ class Order(models.Model):
         verbose_name_plural = "Заказы"
         # выполнение по умолчанию сортировки по убыванию даты заказов
         ordering = ['-order_date']
-        # индексируем поле даты заказа для ускорения сортировки
         indexes = [
             models.Index(fields=['-order_date']),
         ]
