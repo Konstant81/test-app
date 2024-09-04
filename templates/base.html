@@ -14,49 +14,46 @@
     <link rel="icon" href="{% static 'main/images/favicon.ico' %}">
     <title>{{ title }}</title>
   </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'main:index' %}" ><img src="{% static 'main/images/logo.png' %}" alt="Тут должна быть капибара"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'main:index' %}">Главная</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == '/orders/' %}active{% endif %}" href="{% url 'main:orders' %}" >Редактирование БД</a>
-              </li>
-            </ul>
-            <form class="d-flex align-items-center">
-              {% if user.is_authenticated %}
-              <span class="align-text-top fs-5">{{user.username}}</span><a class="btn btn-primary mx-2" href="{% url 'users:logout' %}">Выйти</a>
-              {% else %}
-              <a class="btn btn-primary mx-2" href="{% url 'users:login' %}" role="button">Войти</a>  <a class="btn btn-primary mx-2" href="{% url 'users:registration' %}" role="button">Регистрация</a>
-              {% endif %}
-            </form>
+    <body class="wrapper">
+      <header>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'main:index' %}" ><img src="{% static 'main/images/logo.png' %}" alt="Тут должна быть капибара"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'main:index' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if request.path == '/orders/' %}active{% endif %}" href="{% url 'main:orders' %}" >Редактирование БД</a>
+                </li>
+              </ul>
+              <form class="d-flex align-items-center">
+                {% if user.is_authenticated %}
+                <span class="align-text-top fs-5">{{user.username}}</span><a class="btn btn-primary mx-2" href="{% url 'users:logout' %}">Выйти</a>
+                {% else %}
+                <a class="btn btn-primary mx-2" href="{% url 'users:login' %}" role="button">Войти</a>  <a class="btn btn-primary mx-2" href="{% url 'users:registration' %}" role="button">Регистрация</a>
+                {% endif %}
+              </form>
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
-    <section>
-        {% block content %}
-        {% endblock %}
-    </section>
-    <footer class="bd-footer py-4 py-md-5 mt-5 text-center">
-      <p>Copyright © Разработано Костяном 2024</p>
-    </div>
-  </footer>
-  
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"
-  ></script>
-
-  </body>
+        </nav>
+      </header>
+      <section>
+          {% block content %}
+          {% endblock %}
+      </section>
+      <footer class="bd-footer text-center">
+        <p>Copyright © Разработано Костяном 2024</p>
+      </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    </body>
 
 </html>

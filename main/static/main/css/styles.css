@@ -55,3 +55,21 @@ p {
 .rounded {
 	width: 30%;
 }
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+section {
+	flex-grow: 1;
+}
+
+footer > p {
+	margin: 10px;
+}
