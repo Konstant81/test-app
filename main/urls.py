@@ -25,7 +25,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('orders/', views.order, name='orders'),
     path('get-json/', views.get_json, name='get_json'),
-    path('add/', views.AddOrder.as_view(), name='add'),
+    path('orders/add/', views.AddOrder.as_view(), name='add'),
     path('edit/<int:pk>/', views.UpdateOrder.as_view(), name='edit'),
     path('delete/<int:pk>/', views.DeleteOrder.as_view(), name='delete'),
 ]

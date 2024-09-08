@@ -62,8 +62,7 @@ def index(request):
 def order(request):
     orders = Order.objects.select_related("client").all()
     context = {
-        "title": "Редактирование",
-        "content": "Страница редактирования БД",
+
         "orders": orders,
     }
     return render(request, "main/orders.html", context)

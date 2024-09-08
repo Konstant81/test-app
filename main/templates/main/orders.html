@@ -4,11 +4,49 @@
 <div class="d-flex justify-content-between">
     <div class="m-3"><h1>Выберите заказ</h1></div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <form>
-        <a class="btn btn-primary mt-4 me-md-3" href="{% url 'main:add' %}" type="button">Добавить заказ</a>
+      <form action="add/" method="post">
+        <button type="button" class="btn btn-primary mt-4 me-md-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Добавить заказ
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Новый заказ</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <div class="m-0">
+                  <form action="add" method="post">
+                      {% csrf_token %}
+                      <div class="form-error">{{ add_order_form.non_field_errors }}</div>
+                      <div class="bg-2 row">
+                          {% for f in add_order_form %}
+                          <p class="p-0 m-3">
+                            <label class="col-sm-4 col-form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}
+                          </p>
+                          {% comment %} <div class="row gy-2 p-0 m-0 ">
+                              <div class="col-auto">
+                                <label class="col-auto" for="{{ f.id_for_label }}">{{f.label}}: </label>
+                              </div>
+                              <div class="col-auto align-content-center">{{ f }}</div>   
+                          </div> {% endcomment %}
+                          <div class="form-error">{{ add_order_form.client_id.errors }}</div>
+                          {% endfor %}
+                      </div>
+                  </form>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Добавить</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
 </div>
+
 <form action="">
   <div class="m-3">
     <table  class="table table-success table-bordered table-striped-columns table-hover align-middle">
