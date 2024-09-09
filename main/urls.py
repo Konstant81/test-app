@@ -24,6 +24,7 @@ app_name = "main"
 urlpatterns = [
     path('', views.index, name='index'),
     path('orders/', views.order, name='orders'),
+    path('orders/<int:client_pk>', views.order, name='orders'),
     path('get-json/', views.get_json, name='get_json'),
     path('orders/add/', views.AddOrder.as_view(), name='add'),
     path('edit/<int:pk>/', views.UpdateOrder.as_view(), name='edit'),

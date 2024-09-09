@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% load static %}
 
 {% block content %}
-<div class="d-flex justify-content-between">
-    <div class="m-3"><h1>Выберите заказ</h1></div>
+<div class="d-flex justify-content-between align-items-center mt-3">
+    <div class="mx-3"><h1 class="m-0">Выберите заказ</h1></div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <form action="add/" method="post">
-        <button type="button" class="btn btn-primary mt-4 me-md-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary me-md-5 me-sm-3 me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Добавить заказ
         </button>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -25,12 +25,6 @@
                           <p class="p-0 m-3">
                             <label class="col-sm-4 col-form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}
                           </p>
-                          {% comment %} <div class="row gy-2 p-0 m-0 ">
-                              <div class="col-auto">
-                                <label class="col-auto" for="{{ f.id_for_label }}">{{f.label}}: </label>
-                              </div>
-                              <div class="col-auto align-content-center">{{ f }}</div>   
-                          </div> {% endcomment %}
                           <div class="form-error">{{ add_order_form.client_id.errors }}</div>
                           {% endfor %}
                       </div>
@@ -52,22 +46,38 @@
     <table  class="table table-success table-bordered table-striped-columns table-hover align-middle">
     <thead>
       <tr>
-        <th class="m-0 p-0" style="width: 10%;">ID</th>
-        <th class="m-0 p-0" style="width: 25%;">Заказчик</th>
-        <th class="m-0 p-0" style="width: 25%;">Дата заказа</th>
-        <th class="m-0 p-0" style="width: 25%;">Сумма заказа</th>
-        <th class="m-0 p-0" style="width: 15%;">Удалить</th>
+        <th class="align-middle" style="width: 10%;" scope="col">ID</th>
+        <th class="align-middle" style="width: 25%;" scope="col">
+          <div class="d-flex justify-content-center align-items-center">
+            <div><pre class="m-0">Заказчик </pre></div>
+            <div class="dropdown ">
+            <button class="btn btn- dropdown-toggle p-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">   
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="{% url 'main:orders' %}"  >Все заказчики</a></li>
+              <li><hr class="dropdown-divider"></li>
+              {% for client in clients %}
+              <li><a href="{% url 'main:orders' client.id %}" class="dropdown-item" value="{{ client.id }}">{{ client.fullname }}</a></li>
+              {% endfor %}
+            </ul>
+            </div>
+          </div>
+      </th>
+        <th class="align-middle" style="width: 25%;" scope="col">Дата заказа</th>
+        <th class="align-middle" style="width: 22%;" scope="col">Сумма заказа</th>
+        <th class="align-middle" style="width: 18%;" scope="col">Удалить</th>
       </tr>
     </thead>
     <tbody>
       {% for order in orders %}
       <tr>
-        <td class="m-0 p-0"><a href="{% url 'main:edit' order.id %}" title="Редактировать заказ">{{ order.id }}</a></td>
-        <td class="m-0 p-0">{{ order.client }}</td>
-        <td class="m-0 p-0">{{ order.order_date }}</td>
-        <td class="m-0 p-0">{{ order.amount }}</td>
-        <td class="m-0 p-0">
+        <td scope="row"><a href="{% url 'main:edit' order.id %}" title="Редактировать заказ">{{ order.id }}</a></td>
+        <td scope="row">{{ order.client }}</td>
+        <td scope="row">{{ order.order_date }}</td>
+        <td scope="row">{{ order.amount }}</td>
+        <td scope="row">
           <a class="m-0 p-0" href="{% url 'main:delete' order.id %}" type="button"><img class="rounded" src="{% static 'main/images/del.png' %}" alt="Удалить"></a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

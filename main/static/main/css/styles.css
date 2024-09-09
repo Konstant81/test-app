@@ -2,7 +2,7 @@ a {
 	text-decoration: none;
 }
 
-p {
+p, pre {
 	font-size: clamp(0.75rem, 0.25rem + 2vw, 1.5rem);
 }
 
@@ -76,4 +76,8 @@ footer > p {
 
 .modal-header {
 	background-color: #d1e7dd;
+}
+
+.dropdown-item {
+	text-align: center;
 }
