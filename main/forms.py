@@ -13,7 +13,7 @@ class AddOrderForm(forms.ModelForm):
             'order_date': forms.DateInput(attrs={'type':'date'})
         }
 
-class EditdOrderForm(forms.ModelForm):
+class EditOrderForm(forms.ModelForm):
     amount = forms.IntegerField(label="Сумма заказа", min_value=1, required=True)
 
     class Meta:

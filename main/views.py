@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView, DeleteView, UpdateView
-from main.forms import AddOrderForm, EditdOrderForm
+from main.forms import AddOrderForm, EditOrderForm
 from main.models import Client, Order
 
 # Create your views here.
@@ -97,7 +97,7 @@ class AddOrder(CreateView):
 
 
 class UpdateOrder(UpdateView):
-    form_class = EditdOrderForm
+    form_class = EditOrderForm
     template_name = "main/add_order.html"
     success_url = reverse_lazy("main:orders")
     extra_context = {
