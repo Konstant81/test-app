@@ -60,7 +60,6 @@ def index(request):
 
 @login_required
 def order(request, client_pk=""):
-    print(request.path == f'/orders/{client_pk}')
     if client_pk:
         orders = Order.objects.select_related("client").filter(client__id=client_pk)
     else:
